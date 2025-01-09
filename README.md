@@ -26,4 +26,7 @@
 8. Open cmd in the directory where the docker-compose.yml file is present and make sure your docker deamon is running and enter the command mentioned below.
 		docker compose up --build -d
 		
-9. Once docker pulls all the images you can access your application on "http://localhost:3000" 
+9. Once docker pulls all the images you can access your application on "http://localhost:3000"
+
+
+################## Check Project Car.docx file for more info ##################
