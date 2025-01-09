@@ -1,4 +1,4 @@
-############################################## Steps to set up the project ##############################################
+################## Steps to set up the project ##################
 
 1. Docker should be installed on your machine.
 2. Clone or download the docker-compose.yml file present in the repository.
