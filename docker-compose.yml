@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: gamedb
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  app:
+    image: achftdocker/car:1.0
+    ports:
+      - "8087:8087"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/gamedb
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SERVER_PORT=8087
+    depends_on:
+      - db
+
+  carfrontend:
+    build: 
+      context: .
+      args:
+        - REACT_APP_HOST_IP_ADDRESS=http://localhost:8087
+    image: achftdocker/car-app:2.0
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_HOST_IP_ADDRESS=http://localhost:8087
+    depends_on:
+      - app
+
+volumes:
+  db_data:
