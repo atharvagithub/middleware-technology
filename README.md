@@ -29,4 +29,6 @@
 9. Once docker pulls all the images you can access your application on "http://localhost:3000"
 
 
+NOTE - To check swagger just add swagger-ui.html at the end of backend host, for example http://localhost:8087/swagger-ui.html
+
 ################## Check Project Car.docx file for more info ##################
